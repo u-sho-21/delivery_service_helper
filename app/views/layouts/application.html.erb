@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <!-- タイトル -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF99;">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag 'logo2.png'%>
+      <% end %>
+    </nav>
+    <!-- ヘッダー画像 -->
+    <%= image_tag 'image01.jpg', class: "header-image" %>
+    <!-- ヘッダーメニュー -->
+    <%= render 'layouts/header' %>
+    <!-- メインコンテンツ -->
     <%= yield %>
   </body>
 </html>
