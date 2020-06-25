@@ -21,6 +21,10 @@
     <!-- ヘッダーメニュー -->
     <%= render 'layouts/header' %>
     <!-- メインコンテンツ -->
-    <%= yield %>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <!-- フッタ -->
+    <%= render 'layouts/footer' %>
   </body>
 </html>

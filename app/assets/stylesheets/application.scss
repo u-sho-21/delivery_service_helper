@@ -7,7 +7,12 @@
   width: 100%;
 }
 
-// bodyフォント
+// ヘッダーメニュー
+.header-menu {
+  background-color:	#F0E68C;
+}
+
+// body関連
 body {
   font-family: "Helvetica Neue",
     Arial,
@@ -15,4 +20,14 @@ body {
     "Hiragino Sans",
     Meiryo,
     sans-serif;
+}
+
+.content {
+  height: auto;
+}
+
+// フッタ
+.footer {
+  height: 200px;
+  background-color:	#F0E68C;
 }
