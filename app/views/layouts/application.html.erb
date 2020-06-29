@@ -12,8 +12,14 @@
   <body>
     <!-- タイトル -->
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFFF99;">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag 'logo2.png'%>
+      <% unless shop_user_signed_in? %>
+        <%= link_to root_path, class: "navbar-brand" do %>
+          <%= image_tag 'logo2.png'%>
+        <% end %>
+      <% else %>
+        <%= link_to "#", class: "navbar-brand" do %>
+          <%= image_tag 'logo2.png'%>
+        <% end %>
       <% end %>
     </nav>
     <!-- ヘッダー画像 -->
@@ -22,7 +28,15 @@
     <%= render 'layouts/header' %>
     <!-- メインコンテンツ -->
     <div class="content">
+      <% if notice %>
+      　　<p><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p><%= alert %></p>
+      <% end %>
+
       <%= yield %>
+
     </div>
     <!-- フッタ -->
     <%= render 'layouts/footer' %>

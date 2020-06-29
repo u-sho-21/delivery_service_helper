@@ -1,0 +1,54 @@
+<h2 class="page-title">店舗登録(内容確認)</h2>
+
+<p>ご登録内容をご確認ください。</p>
+<%= form_for(@shop_user, url: shop_user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <table class="sign-up-form">
+    <tr class="field">
+      <td class="label"><%= f.label :login_id %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="sign-up-confirm"><%= @shop_user.login_id %></div>
+        <%= f.hidden_field :login_id, :value => @shop_user.login_id %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :email %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="sign-up-confirm"><%= @shop_user.email %></div>
+        <%= f.hidden_field :email, :value => @shop_user.email %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :name %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="sign-up-confirm"><%= @shop_user.name %></div>
+        <%= f.hidden_field :name, :value => @shop_user.name %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :phone_num %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="sign-up-confirm"><%= @shop_user.phone_num %></div>
+        <%= f.hidden_field :phone_num, :value => @shop_user.phone_num %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :password %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="sign-up-confirm"><%= @shop_user.password %></div>
+        <%= f.hidden_field :password, :value => @shop_user.password %>
+      </td>
+    </tr>
+  </table>
+
+    <div class="actions" id="sign-up-submit">
+      <%= f.submit '戻る', name: :back, class: "btn btn-secondary" %>
+      <%= f.submit "登録", class: "btn btn-success" %>
+    </div>
+
+<% end %>

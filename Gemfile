@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # bootstrap4
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+# ログイン認証
+gem 'devise'
+# デバック関連
+gem 'pry-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
