@@ -1,0 +1,42 @@
+<h2 class="page-title">店舗登録</h2>
+
+<%= form_for(@shop_user, url: confirm_shop_user_registration_path) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <table class="sign-up-form">
+    <tr class="field">
+      <td class="label"><%= f.label :login_id %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.text_field :login_id, autofocus: true, autocomplete: "login_id", class: "sign-up-input" %><span>※半角英数字６文字以上</span></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :email %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "sign-up-input" %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :name %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "sign-up-input" %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :phone_num %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.text_field :phone_num, autofocus: true, autocomplete: "phone_num", class: "sign-up-input" %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :password %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.password_field :password, autocomplete: "new-password", class: "sign-up-input" %><span>※半角英数字6文字以上</span></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :password_confirmation %><span>&nbsp※必須</span></td>
+      <td class="field"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "sign-up-input" %></td>
+    </tr>
+  </table>
+
+    <div class="actions" id="sign-up-submit">
+      <%= f.submit "内容確認", class: "btn btn-success" %>
+    </div>
+
+<% end %>
