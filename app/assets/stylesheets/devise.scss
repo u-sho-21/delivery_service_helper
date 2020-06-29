@@ -43,3 +43,29 @@ table th, table td {
 .sign-up-confirm {
   text-align: center;
 }
+
+// deviseログイン関連
+.login-form {
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 30px 0px 30px 0px;
+}
+
+.login-form label {
+  font-size: 20px;
+  padding-top: 3%;
+}
+
+.login-input {
+  height: 30px;
+  width: 70%;
+}
+
+.login-form .field {
+  margin-left: 22%;
+}
+
+#login-submit {
+  padding-top: 2%;
+  text-align: center;
+}

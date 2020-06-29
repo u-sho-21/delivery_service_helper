@@ -17,7 +17,7 @@
           <%= image_tag 'logo2.png'%>
         <% end %>
       <% else %>
-        <%= link_to "#", class: "navbar-brand" do %>
+        <%= link_to stores_path(current_shop_user), class: "navbar-brand" do %>
           <%= image_tag 'logo2.png'%>
         <% end %>
       <% end %>
@@ -26,17 +26,13 @@
     <%= image_tag 'image01.jpg', class: "header-image" %>
     <!-- ヘッダーメニュー -->
     <%= render 'layouts/header' %>
+    <!-- flash -->
+    <div class="notifications">
+      <%= render 'layouts/notifications' %>
+    </div>
     <!-- メインコンテンツ -->
     <div class="content">
-      <% if notice %>
-      　　<p><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p><%= alert %></p>
-      <% end %>
-
       <%= yield %>
-
     </div>
     <!-- フッタ -->
     <%= render 'layouts/footer' %>

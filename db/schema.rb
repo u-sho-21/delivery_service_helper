@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_045205) do
+ActiveRecord::Schema.define(version: 2020_06_29_071943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,4 +30,22 @@ ActiveRecord::Schema.define(version: 2020_06_26_045205) do
     t.index ["reset_password_token"], name: "index_shop_users_on_reset_password_token", unique: true
   end
 
+  create_table "stores", force: :cascade do |t|
+    t.string "store_name"
+    t.string "phone_num"
+    t.string "post_code"
+    t.integer "prefecture_id"
+    t.string "city"
+    t.string "block"
+    t.string "building"
+    t.date "holiday"
+    t.string "home_url"
+    t.time "business_hours"
+    t.bigint "shop_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_user_id"], name: "index_stores_on_shop_user_id"
+  end
+
+  add_foreign_key "stores", "shop_users"
 end

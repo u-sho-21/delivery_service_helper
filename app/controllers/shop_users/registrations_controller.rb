@@ -25,7 +25,6 @@ class ShopUsers::RegistrationsController < Devise::RegistrationsController
     # super
     @shop_user = ShopUser.new(sign_up_params)
     render :new and return if params[:back] || !@shop_user.save
-    redirect_to root_path
   end
 
   # GET /resource/edit

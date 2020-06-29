@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # トップページ
   root to: 'tops#index'
 
-  # devise関連
+  # devise関連(shop_user)
   devise_for :shop_users, skip: :all
 
   devise_scope :shop_user do
@@ -29,4 +29,11 @@ Rails.application.routes.draw do
     put 'password' => 'shop_users/passwords#update', as: :update_shop_user_password
   end
   resources :shop_users
+
+  # store関連
+  controller :stores do
+    scope path: ':shop_user_id' do
+      resources :stores
+    end
+  end
 end
