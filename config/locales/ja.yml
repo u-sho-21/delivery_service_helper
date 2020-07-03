@@ -28,6 +28,30 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      store:
+        store_name: 店舗名
+        phone_num: 電話番号
+        post_code: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        block: 町名番地等
+        building: 建物名
+        holiday: 定休日
+        home_url: ホームページURL
+        business_hours: 営業時間
+        address: 住所
+      store_order_info:
+        reception_email: 注文受付メール
+        transport_fee: 送料
+        delivery_reception_time: 配達受付時間
+        delivery_reception_time_1: (月)
+        delivery_reception_time_2: (火)
+        delivery_reception_time_3: (水)
+        delivery_reception_time_4: (木)
+        delivery_reception_time_5: (金)
+        delivery_reception_time_6: (土)
+        delivery_reception_time_7: (日)
+        comment: 注意事項など
     models:
       user: ユーザ
   devise:

@@ -10,7 +10,7 @@ class ShopUsers::RegistrationsController < Devise::RegistrationsController
     if @shop_user.valid?
       render :confirm
     else
-     render :new
+      render :new
     end
   end
 

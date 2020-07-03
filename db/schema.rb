@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_071943) do
+ActiveRecord::Schema.define(version: 2020_06_30_083638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,17 +30,35 @@ ActiveRecord::Schema.define(version: 2020_06_29_071943) do
     t.index ["reset_password_token"], name: "index_shop_users_on_reset_password_token", unique: true
   end
 
+  create_table "store_order_infos", force: :cascade do |t|
+    t.string "reception_email", default: "", null: false, comment: "注文メール受付先"
+    t.integer "transport_fee", null: false, comment: "送料"
+    t.string "delivery_reception_time_1", default: "", null: false, comment: "配達受付時間(月)"
+    t.string "delivery_reception_time_2", default: "", null: false, comment: "配達受付時間(火)"
+    t.string "delivery_reception_time_3", default: "", null: false, comment: "配達受付時間(水)"
+    t.string "delivery_reception_time_4", default: "", null: false, comment: "配達受付時間(木)"
+    t.string "delivery_reception_time_5", default: "", null: false, comment: "配達受付時間(金)"
+    t.string "delivery_reception_time_6", default: "", null: false, comment: "配達受付時間(土)"
+    t.string "delivery_reception_time_7", default: "", null: false, comment: "配達受付時間(日)"
+    t.bigint "store_id"
+    t.text "comment", default: "", comment: "注意事項など"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_store_order_infos_on_store_id"
+  end
+
   create_table "stores", force: :cascade do |t|
-    t.string "store_name"
-    t.string "phone_num"
-    t.string "post_code"
-    t.integer "prefecture_id"
-    t.string "city"
-    t.string "block"
-    t.string "building"
-    t.date "holiday"
-    t.string "home_url"
-    t.time "business_hours"
+    t.string "store_name", default: "", null: false, comment: "店舗名"
+    t.string "phone_num", default: "", null: false, comment: "電話番号"
+    t.string "post_code", default: "", null: false, comment: "郵便番号"
+    t.integer "prefecture_id", default: 0, null: false, comment: "都道府県"
+    t.string "city", default: "", null: false, comment: "市区町村"
+    t.string "block", default: "", null: false, comment: "町名番地等"
+    t.string "building", default: "", comment: "建物名"
+    t.string "holiday", default: "", null: false, comment: "定休日"
+    t.string "home_url", default: "", comment: "ホームページURL"
+    t.time "business_hours_start", null: false, comment: "営業開始時間"
+    t.time "business_hours_finish", null: false, comment: "営業終了時間"
     t.bigint "shop_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,3 +1,52 @@
-// Place all the styles related to the stores controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// store登録関連
+.store-input {
+  height: 30px;
+  width: 50%;
+  margin: 0% 3%;
+}
+
+.store-input-address {
+  height: 30px;
+  width: 35%;
+}
+
+.store-input-fee {
+  width: 20%;
+  margin: 0% 1% 0% 3%;
+}
+
+.store-input-comment {
+  height: 60px;
+  width: 50%;
+  margin: 2% 3%;
+}
+
+#store-submit {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.store-confirm {
+  margin: 0% 3%;
+}
+
+.address {
+  padding: 1% 2% 1% 2%;
+  label {
+    padding-top: 1%;
+  width: 15%;
+  }
+}
+
+.store-hours {
+  margin: 0% 3%;
+  width: 20%;
+}
+
+.delively_reception {
+  padding: 2% 2% 2% 2%;
+  label {
+    width: 7%;
+  }
+}

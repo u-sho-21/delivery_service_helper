@@ -1,36 +1,7 @@
 
 // devise登録関連
-table.sign-up-form {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-td.label {
-  width: 30%;
-  height: 70px;
-  background-color: #f3fcff;
-  span {
-    color: red;
-  }
-  label {
-    padding-left: 5%;
-  }
-}
-
-td.field {
-  width: 70%;
-  span {
-    color: red;
-  }
-}
-
-table th, table td {
-  border: solid 1px #A9A9A9;
-  /*実線 1px 黒*/
-}
-
 .sign-up-input {
-  height: 40px;
+  height: 30px;
   width: 50%;
   margin: 0% 3%;
 }

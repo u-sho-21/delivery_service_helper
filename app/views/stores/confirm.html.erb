@@ -1,0 +1,181 @@
+<h2 class="page-title">店舗情報登録(内容確認)</h2>
+
+<p>ご登録内容をご確認ください。</p>
+
+<%= form_for(@store, url: stores_path) do |f| %>
+
+  <table class="store-form">
+    <tr class="field">
+      <td class="label"><%= f.label :store_name %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="store-confirm"><%= @store.store_name %></div>
+        <%= f.hidden_field :store_name, :value => @store.store_name %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :phone_num %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="store-confirm"><%= @store.phone_num %></div>
+        <%= f.hidden_field :phone_num, :value => @store.phone_num %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :address %><span>&nbsp※必須</span></td>
+      <td class="field address">
+        <div class="">
+          <%= f.label :post_code %>
+          <%= @store.post_code %>
+          <%= f.hidden_field :post_code, :value => @store.post_code %>
+        </div><br />
+        <div class="">
+          <%= f.label :prefecture_id %>
+          <%= @store.prefecture_id %>
+          <%= f.hidden_field :prefecture_id, :value => @store.prefecture_id %>
+        </div><br />
+        <div class="">
+          <%= f.label :city %>
+          <%= @store.city %>
+          <%= f.hidden_field :city, :value => @store.city %>
+        </div><br />
+        <div class="">
+          <%= f.label :block %>
+          <%= @store.block %>
+          <%= f.hidden_field :block, :value => @store.block %>
+        </div><br />
+        <div class="">
+          <%= f.label :building %>
+          <%= @store.building %>
+          <%= f.hidden_field :building, :value => @store.building %>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :business_hours %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="store-confirm">
+          <%= @store.business_hours_start.to_s(:time) %>
+          <%= f.hidden_field :business_hours_start, :value => @store.business_hours_start %>
+          ~
+          <%= @store.business_hours_finish.to_s(:time) %>
+          <%= f.hidden_field :business_hours_finish, :value => @store.business_hours_finish %>
+        </div>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :holiday %><span>&nbsp※必須</span></td>
+      <td class="field">
+        <div class="store-confirm"><%= @store.holiday %></div>
+        <%= f.hidden_field :holiday, :value => @store.holiday %>
+      </td>
+    </tr>
+
+    <tr class="field">
+      <td class="label"><%= f.label :home_url %></td>
+      <td class="field">
+        <div class="store-confirm"><%= @store.home_url %></div>
+        <%= f.hidden_field :home_url, :value => @store.home_url %>
+      </td>
+    </tr>
+
+  </table>
+
+  <h2 class="page-title2">注文情報</h2>
+
+  <%= f.fields_for :store_order_info do |i| %>
+
+    <table class="store-form">
+
+      <tr class="field">
+        <td class="label"><%= i.label :reception_email %><span>&nbsp※必須</span></td>
+        <td class="field">
+          <div class="store-confirm"><%= @store.store_order_info.reception_email %></div>
+          <%= i.hidden_field :reception_email, :value => @store.store_order_info.reception_email %>
+        </td>
+      </tr>
+
+      <tr class="field">
+        <td class="label"><%= i.label :transport_fee %><span>&nbsp※必須</span></td>
+        <td class="field">
+          <div class="store-confirm"><%= @store.store_order_info.transport_fee %>円</div>
+          <%= i.hidden_field :transport_fee, :value => @store.store_order_info.transport_fee %>
+        </td>
+      </tr>
+
+      <tr class="field">
+        <td class="label"><%= i.label :delivery_reception_time %><span>&nbsp※必須</span></td>
+        <td class="field delively_reception">
+          <%= i.label :delivery_reception_time_1 %>
+          <%= @store.store_order_info.delivery_reception_time_1_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_1_first, :value => @store.store_order_info.delivery_reception_time_1_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_1_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_1_finish, :value => @store.store_order_info.delivery_reception_time_1_finish %><br />
+
+
+          <%= i.label :delivery_reception_time_2 %>
+          <%= @store.store_order_info.delivery_reception_time_2_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_2_first, :value => @store.store_order_info.delivery_reception_time_2_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_2_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_2_finish, :value => @store.store_order_info.delivery_reception_time_2_finish %><br />
+
+          <%= i.label :delivery_reception_time_3 %>
+          <%= @store.store_order_info.delivery_reception_time_3_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_3_first, :value => @store.store_order_info.delivery_reception_time_3_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_3_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_3_finish, :value => @store.store_order_info.delivery_reception_time_3_finish %><br />
+
+          <%= i.label :delivery_reception_time_4 %>
+          <%= @store.store_order_info.delivery_reception_time_4_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_4_first, :value => @store.store_order_info.delivery_reception_time_4_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_4_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_4_finish, :value => @store.store_order_info.delivery_reception_time_4_finish %><br />
+
+          <%= i.label :delivery_reception_time_5 %>
+          <%= @store.store_order_info.delivery_reception_time_5_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_5_first, :value => @store.store_order_info.delivery_reception_time_5_first %>
+
+          ~
+          <%= @store.store_order_info.delivery_reception_time_5_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_5_finish, :value => @store.store_order_info.delivery_reception_time_5_finish %><br />
+
+          <%= i.label :delivery_reception_time_6 %>
+          <%= @store.store_order_info.delivery_reception_time_6_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_6_first, :value => @store.store_order_info.delivery_reception_time_6_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_6_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_6_finish, :value => @store.store_order_info.delivery_reception_time_6_finish %><br />
+
+          <%= i.label :delivery_reception_time_7 %>
+          <%= @store.store_order_info.delivery_reception_time_7_first.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_7_first, :value => @store.store_order_info.delivery_reception_time_7_first %>
+          ~
+          <%= @store.store_order_info.delivery_reception_time_7_finish.to_s(:time) %>
+          <%= i.hidden_field :delivery_reception_time_7_finish, :value => @store.store_order_info.delivery_reception_time_7_finish %><br />
+        </td>
+      </tr>
+
+      <tr class="field">
+        <td class="label"><%= i.label :comment %></td>
+        <td class="field">
+          <div class="store-confirm"><%= @store.store_order_info.comment %></div>
+          <%= i.hidden_field :comment, :value => @store.store_order_info.comment %>
+        </td>
+      </tr>
+
+    </table>
+
+  <% end %>
+
+  <div class="actions" id="store-submit">
+    <%= f.submit '戻る', name: :back, class: "btn btn-secondary" %>
+    <%= f.submit "登録", class: "btn btn-success" %>
+  </div>
+
+<% end %>
