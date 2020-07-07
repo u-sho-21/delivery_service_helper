@@ -35,7 +35,7 @@
   padding: 1% 2% 1% 2%;
   label {
     padding-top: 1%;
-  width: 15%;
+    width: 15%;
   }
 }
 
@@ -48,5 +48,28 @@
   padding: 2% 2% 2% 2%;
   label {
     width: 7%;
+  }
+}
+
+// show
+.store-show-info-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;/* IE10用 */
+  display: flex;
+}
+
+.store-info-top {
+  border: none;
+}
+
+.store-form {
+  margin-right: 2%;
+}
+
+.address-show {
+  padding: 1% 2% 1% 2%;
+  label {
+    padding-top: 1%;
+    width: 30%;
   }
 }

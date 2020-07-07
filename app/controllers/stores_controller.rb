@@ -7,7 +7,7 @@ class StoresController < ApplicationController
 
   def new
     if current_shop_user.store
-      redirect_to edit_store_url(id: current_shop_user.store.id)
+      redirect_to store_url(id: current_shop_user.id)
     else
       @store = current_shop_user.build_store
       @store.build_store_order_info
@@ -19,7 +19,7 @@ class StoresController < ApplicationController
     if @store.valid?
       render :confirm
     else
-      flash.now[:alert] = "error"
+      flash.now[:alert] = "error" # 仮
       render :new
     end
   end
@@ -31,8 +31,22 @@ class StoresController < ApplicationController
     redirect_to stores_url
   end
 
-  def edit
+  def show
+    @store = current_shop_user.store
+  end
 
+  def edit
+    @store = current_shop_user.store
+    @store.store_order_info.delivery_reception_edit
+  end
+
+  def update
+    @store = current_shop_user.store
+    render :show and return if params[:back] || !@store.update(store_params)
+    @store.store_order_info.delivery_reception_conclusion
+    @store.save!
+    flash[:notice] = "店舗情報を更新しました。"
+    redirect_to store_url
   end
 
   private
