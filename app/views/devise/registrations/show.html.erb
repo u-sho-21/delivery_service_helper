@@ -1,0 +1,26 @@
+<h2 class="page-title">店舗ユーザー設定</h2>
+
+<div class="shop-user-show">
+  <table>
+    <tr class="field">
+      <td class="label">ログインID</td>
+      <td class="field"><%= @shop_user.login_id %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label">メールアドレス</td>
+      <td class="field"><%= @shop_user.email %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label">担当者名</td>
+      <td class="field"><%= @shop_user.name %></td>
+    </tr>
+
+    <tr class="field">
+      <td class="label">ご連絡先電話番号</td>
+      <td class="field"><%= @shop_user.phone_num %></td>
+    </tr>
+  </table>
+  <%= link_to "編集する", edit_shop_user_registration_path, class: "btn btn-success" %>
+</div>
