@@ -4,6 +4,8 @@ class ShopUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_one :store, dependent: :destroy
+
   #登録時にメールアドレスを不要とする
   def email_required?
     false

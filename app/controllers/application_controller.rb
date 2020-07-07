@@ -9,6 +9,6 @@ class ApplicationController < ActionController::Base
     # devise新規登録時のストロングパラメータ追加
     def configure_permitted_parameters
       # 新規登録時のストロングパラメータに「login_idカラムとnameカラムとphone_numカラム」の追加
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:login_id, :name, :phone_num])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:login_id, :email, :name, :phone_num])
     end
 end

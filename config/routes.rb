@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   # store関連
   controller :stores do
     scope path: ':shop_user_id' do
-      resources :stores
+      resources :stores do
+        post 'confirm', on: :collection
+      end
     end
   end
 end
