@@ -27,6 +27,11 @@ class ShopUsers::RegistrationsController < Devise::RegistrationsController
     render :new and return if params[:back] || !@shop_user.save
   end
 
+  # GET /resource/sign_up/:id
+  def show
+    @shop_user = current_shop_user
+  end
+
   # GET /resource/edit
   def edit
     super
@@ -34,12 +39,18 @@ class ShopUsers::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   def update
-    super
+    # super
+    flash[:notice] = "変更しました。"
+    redirect_to show_shop_user_registration_url
   end
 
   # DELETE /resource
   def destroy
     super
+  end
+
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
   end
 
   # GET /resource/cancel
