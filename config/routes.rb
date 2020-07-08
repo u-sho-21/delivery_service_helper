@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       resources :stores do
         post 'confirm', on: :collection
       end
+      resources :menus
     end
   end
 end
