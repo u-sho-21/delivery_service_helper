@@ -43,6 +43,9 @@ gem 'jquery-rails'
 gem 'devise'
 # デバック関連
 gem 'pry-rails'
+# for image uploader with AWS S3
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

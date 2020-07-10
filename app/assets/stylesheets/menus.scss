@@ -1,0 +1,70 @@
+// 商品登録モーダル関連
+.menu-modal {
+  padding: 4%;
+  label {
+    padding-top: 1%;
+    width: 15%;
+  }
+}
+
+.menu-input-1 {
+  width: 50%;
+}
+
+.menu-input-2 {
+  width: 20%;
+}
+
+.price-field {
+  display: flex;
+  span {
+    margin: auto 0%;
+  }
+}
+
+#menu-file {
+  padding-top: 2%;
+}
+
+// 商品登録ページ(一覧)
+.menu-index {
+  display: inline-block;
+  padding: 0% 15px;
+  div {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+#fab {/*円の部分*/
+    display: block;
+    width: 56px;/*幅*/
+    height: 56px;/*高さ*/
+    background: #03a9f4;/*背景色*/
+    text-align: center;/*中央寄せ*/
+    border-radius: 50%;/*角丸く*/
+    transition: .3s;/*滑らかな動きに*/
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);/*影*/
+}
+
+#fab:hover {/*ホバー時*/
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+}
+
+#fab i {/*中央のアイコン*/
+  color: white;
+  line-height: 40px;/*＝幅と高さ*/
+  font-size: 18px;/*サイズ*/
+}
+
+.menu-link {
+  display: inline-block;
+  padding-left: 3%;
+}
+
+.menu-edit {
+  font-size: 20px;
+}

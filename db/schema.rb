@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_083638) do
+ActiveRecord::Schema.define(version: 2020_07_08_070542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "menus", force: :cascade do |t|
+    t.string "image", comment: "商品画像"
+    t.string "menu_name", default: "", null: false, comment: "商品名"
+    t.integer "price", default: 0, null: false, comment: "値段"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_menus_on_store_id"
+  end
 
   create_table "shop_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -65,5 +75,6 @@ ActiveRecord::Schema.define(version: 2020_06_30_083638) do
     t.index ["shop_user_id"], name: "index_stores_on_shop_user_id"
   end
 
+  add_foreign_key "menus", "stores"
   add_foreign_key "stores", "shop_users"
 end
