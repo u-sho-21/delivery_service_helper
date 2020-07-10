@@ -14,13 +14,17 @@
 
       <% else %>
         <li class="nav-item">
-          <%= link_to "店舗トップ", stores_path(current_shop_user), class: "nav-link" %>
+          <%= link_to "店舗トップ", stores_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "店舗情報登録", new_store_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "商品登録", menus_path, class: "nav-link" %>
+        <% if Store.current_store(current_shop_user).present? %>
+          <%= link_to "商品登録", store_menus_path(store_id: current_shop_user.store.id), class: "nav-link" %>
+        <% else %>
+          <%= link_to "商品登録", stores_path, class: "nav-link" %>
+        <% end %>
         </li>
         <li class="nav-item dropdown">
         <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

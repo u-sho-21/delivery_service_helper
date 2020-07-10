@@ -69,6 +69,10 @@ ja:
         delivery_reception_time_6: (土)
         delivery_reception_time_7: (日)
         comment: 注意事項など
+      menu:
+        image: 商品画像
+        menu_name: 商品名
+        price: 値段
     models:
       user: ユーザ
   devise:

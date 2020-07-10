@@ -1,2 +1,29 @@
-<h1>Menus#index</h1>
-<p>Find me in app/views/menus/index.html.erb</p>
+<h2 class="page-title">商品登録</h2>
+
+<div class="">
+  <% @menus.each do |menu| %>
+    <div class="menu-index">
+      <%= image_tag menu.image.to_s, size: "200x200" %><br />
+      <div class="">
+        <span><%= menu.menu_name %></span>
+
+        <br />
+        <span><%= menu.price %>円(税込み)</span>
+        <div class="menu-link">
+          <%= link_to edit_store_menu_path(id: menu.id), remote: true, class: "menu-edit" do %>
+            <i class="fas fa-edit" style="color: #33CC33;"></i>
+          <% end %>
+          <%= link_to store_menu_path(id: menu.id), method: :delete, data:{ confirm: "#{menu.menu_name}を削除しますか？" }, class: "menu-edit" do %>
+            <i class="fas fa-times" style="color: red;"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to new_store_menu_path, remote: true, id: "fab", class: "btn btn-success menu-add" do %>
+    <i class="fa fa-plus"></i>
+  <% end %>
+</div>
+
+<!-- モーダル -->
+<div class="modal fade" id="menu-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>

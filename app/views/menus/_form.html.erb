@@ -1,0 +1,80 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <%= form_with(model: [:store, @menu], remote: true) do |f| %>
+
+      <% if @menu.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @menu.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel"><%= title %></h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body menu-modal">
+        <div class="field">
+            <%= f.label :image %>
+          <div class="image-field">
+            <% if @menu.image.present? %>
+              <%= image_tag @menu.image.to_s, size: "200x200" %>
+              ➡︎
+              <img id="img1" style="width:200px;height:200px;">
+            <% else %>
+              <img id="img1" style="width:200px;height:200px;">
+            <% end %>
+            <%= f.file_field :image, id: "menu-file" %>
+          </div>
+        </div>
+        <div class="field">
+          <%= f.label :menu_name, class: "form-control-label" %>
+          <%= f.text_field :menu_name, class: "form-control menu-input-1" %>
+        </div>
+        <div class="field">
+          <%= f.label :price, class: "form-control-label" %>
+          <div class="price-field">
+            <%= f.text_field :price, class: "form-control menu-input-2" %>
+            <span>&nbsp円(税込み)</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer actions">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        <%= f.submit button, class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+$(function(){
+  $('#menu-file').change(function(e){
+    //ファイルオブジェクトを取得する
+    var file = e.target.files[0];
+    var reader = new FileReader();
+
+    //画像でない場合は処理終了
+    if(file.type.indexOf("image") < 0){
+      alert("画像ファイルを指定してください。");
+      return false;
+    }
+
+    //アップロードした画像を設定する
+    reader.onload = (function(file){
+      return function(e){
+        $("#img1").attr("src", e.target.result);
+        $("#img1").attr("title", file.name);
+      };
+    })(file);
+    reader.readAsDataURL(file);
+
+  });
+});
+</script>

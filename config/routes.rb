@@ -26,13 +26,14 @@ Rails.application.routes.draw do
   end
   resources :shop_users
 
-  # store関連
+  # 店舗関連
   controller :stores do
     scope path: ':shop_user_id' do
       resources :stores do
         post 'confirm', on: :collection
+        # 店舗紐付きの商品関連
+        resources :menus
       end
-      resources :menus
     end
   end
 end

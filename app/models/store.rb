@@ -1,6 +1,7 @@
 class Store < ApplicationRecord
   belongs_to :shop_user
   has_one :store_order_info, dependent: :destroy
+  has_many :menus
   accepts_nested_attributes_for :store_order_info
 
   enum prefecture_id:{
@@ -16,5 +17,9 @@ class Store < ApplicationRecord
     沖縄県:47
   }
 
+  # 現在の店舗レコード取得
+  def self.current_store(current_shop_user)
+    find_by(shop_user_id: current_shop_user.id)
+  end
 
 end
